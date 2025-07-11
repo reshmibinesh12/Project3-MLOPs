@@ -31,10 +31,13 @@ def parse_args():
 
 def main(args):
     '''Read train and test datasets, train model, evaluate model, save trained model'''
+  # Read train and test data from CSV
+    train_path = Path(args.train_data) / "train.csv"
+    test_path = Path(args.test_data) / "test.csv"
 
    # Load datasets
-    train_df = pd.read_csv(select_first_file(args.train_data))
-    test_df = pd.read_csv(select_first_file(args.test_data))
+    train_df = pd.read_csv(train_path)
+    test_df = pd.read_csv(test_path))
 
     y_train = train_df['price']  # Specify the target column
     X_train = train_df.drop(columns=['price'])
