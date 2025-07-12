@@ -32,8 +32,8 @@ def parse_args():
 def main(args):
     '''Read train and test datasets, train model, evaluate model, save trained model'''
   # Read train and test data from CSV
-    train_df = pd.read_csv(Path(args.train_data)/"train.csv")
-    test_df = pd.read_csv(Path(args.test_data)/"test.csv")
+    train_path = pd.read_csv(Path(args.train_data)/"train.csv")
+    test_path = pd.read_csv(Path(args.test_data)/"test.csv")
    # Load datasets
     train_df = pd.read_csv(train_path)
     test_df = pd.read_csv(test_path)
