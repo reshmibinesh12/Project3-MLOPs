@@ -29,7 +29,7 @@ def main(args):
     print(f"Model path: {args.model_path}")
     print(f"Model info output path: {args.model_info_output_path}")   
         
-     mlflow.start_run()
+    mlflow.start_run()
 
     # Load model
     model = mlflow.sklearn.load_model(args.model_path)
