@@ -11,6 +11,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 import mlflow
 import mlflow.sklearn
+import os
 
 def parse_args():
     '''Parse input arguments'''
@@ -34,9 +35,13 @@ def main(args):
   # Read train and test data from CSV
    train_path = Path(args.train_data) / "train.csv"
    test_path = Path(args.test_data) / "test.csv"
+    if not train_path.exists():
+        raise FileNotFoundError(f"Training file not found: {train_path}")
+    if not test_path.exists():
+        raise FileNotFoundError(f"Test file not found: {test_path}")
    # Load datasets
-    train_df = pd.read_csv(train_path)
-    test_df = pd.read_csv(test_path)
+    train_df = pd.read_csv(Path(args.train_data)/"train.csv")
+    test_df = pd.read_csv(Path(args.test_data)/"test.csv")    
     y_train = train_df['price']  # Specify the target column
     X_train = train_df.drop(columns=['price'])
     y_test = test_df['price']
