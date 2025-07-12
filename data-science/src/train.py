@@ -36,7 +36,7 @@ def main(args):
     test_df = pd.read_csv(Path(args.test_data)/"test.csv")
    # Load datasets
     train_df = pd.read_csv(train_path)
-    test_df = pd.read_csv(test_path))
+    test_df = pd.read_csv(test_path)
     y_train = train_df['price']  # Specify the target column
     X_train = train_df.drop(columns=['price'])
     y_test = test_df['price']
