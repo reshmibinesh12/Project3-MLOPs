@@ -33,8 +33,8 @@ def parse_args():
 def main(args):
     '''Read train and test datasets, train model, evaluate model, save trained model'''
   # Read train and test data from CSV
-   train_path = Path(args.train_data) / "train.csv"
-   test_path = Path(args.test_data) / "test.csv"
+    train_path = Path(args.train_data) / "train.csv"
+    test_path = Path(args.test_data) / "test.csv"
     if not train_path.exists():
         raise FileNotFoundError(f"Training file not found: {train_path}")
     if not test_path.exists():
